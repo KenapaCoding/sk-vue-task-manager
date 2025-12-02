@@ -1,7 +1,6 @@
 <template>
-    <div>
+    <div class="item" @click="$emit('toggle')">
         <span :style="{textDecoration: task.done ? 'line-through': 'none'}">{{ task.title }}</span>
-        <button @click="$emit('toggle')">Toggle</button>
         <router-link :to="'/task/' + task.id">Detail</router-link>
     </div>
 </template>
@@ -10,5 +9,15 @@
         task:Object
     })
 
-    const emit = defineEmits(['toggle'])
+    const emit = defineEmits(['toggle']);
 </script>
+
+<style scoped>
+.item {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+</style>
